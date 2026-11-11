@@ -14,6 +14,18 @@ export function formatPrice(cents: number | null | undefined): string {
   return `$${(cents / 100).toFixed(2)}`;
 }
 
+/**
+ * Cents as money — always with the cents shown, and always with a currency
+ * symbol. Deliberately not `formatPrice`, which renders 0 as "Free": a day
+ * with no sales is $0.00, not free.
+ */
+export function formatMoney(cents: number): string {
+  return `$${(cents / 100).toLocaleString("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })}`;
+}
+
 /** Whole days between an ISO timestamp and now. Negative values clamp to 0. */
 export function daysSince(iso: string): number {
   const elapsed = Date.now() - new Date(iso).getTime();
