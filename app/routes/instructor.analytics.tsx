@@ -42,10 +42,10 @@ import {
   ANALYTICS_RANGES,
   PLATFORM_FEE_PERCENT,
   formatBucket,
-  formatMoney,
   parseAnalyticsRange,
   rangeStart,
 } from "~/lib/analytics";
+import { formatMoney } from "~/lib/utils";
 import { countryName } from "~/lib/ppp";
 import { Button } from "~/components/ui/button";
 import { Card, CardContent } from "~/components/ui/card";

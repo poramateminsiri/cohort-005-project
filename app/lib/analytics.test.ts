@@ -5,7 +5,6 @@ import {
   PLATFORM_FEE_PERCENT,
   PLATFORM_FEE_RATE,
   formatBucket,
-  formatMoney,
   rangeStart,
   parseAnalyticsRange,
   splitRevenue,
@@ -115,17 +114,6 @@ describe("analytics config", () => {
       expect(rangeStart("7d")).toBe("2026-06-08T12:00:00.000Z");
       expect(rangeStart("30d")).toBe("2026-05-16T12:00:00.000Z");
       expect(rangeStart("90d")).toBe("2026-03-17T12:00:00.000Z");
-    });
-  });
-
-  describe("formatMoney", () => {
-    it("always shows cents, and zero is a price rather than 'Free'", () => {
-      expect(formatMoney(0)).toBe("$0.00");
-      expect(formatMoney(4999)).toBe("$49.99");
-    });
-
-    it("groups thousands", () => {
-      expect(formatMoney(123_456_789)).toBe("$1,234,567.89");
     });
   });
 
